@@ -13,6 +13,7 @@ dataset_path = Path(dataset).resolve()
 df = pd.read_csv(dataset, encoding="ISO-8859-1", engine="python")
 df.head(10)
 df.dtypes
+df.shape
 
 #isolating the pledged column
 df["pledged"].head(10)
@@ -23,13 +24,17 @@ pledged = df["pledged"]
 #avg_pledge = sum(pledged) / len(pledged)
 #print(avg_pledge)
 pledged.describe()
-pledged.mean()
+pledged.mean(); pledged.mode()
+pledged.value_counts()
+pledged.value_counts().iloc[0:10].plot.bar()
 
 #exploring the kickstarter projects and their backers
 df[["name", "backers"]].head(10)
 backers = df["backers"]
 backers.head(10)
 backers.describe()
+backers.mean()
+backers.mode()
 
 #looking into the distribution of backers
 backers.plot() #all exisiting values in the dataset
@@ -49,6 +54,7 @@ imp = ["status", "category", "location", "funded percentage", "funded date", "up
 #focusing only on projects that were successful
 df_imp = df[imp].loc[df["status"] == "successful"]
 df_imp.head(10)
+df_imp.shape
 
 #top 10 successful locations
 df_imp["location"].value_counts().iloc[0:10]
@@ -57,21 +63,26 @@ df_imp["location"].value_counts().iloc[0:10].sort_values().plot.barh()
 df_imp["duration"].plot.hist(bins=50) #vs df["duration"].plot.hist() -- have identical distributions
 df_imp["duration"].plot.box()
 df_imp["duration"].describe()
+df_imp["duration"].mode()
 #most successful categories
+df["category"].value_counts()
 df_imp["category"].value_counts()
 df_imp["category"].value_counts().sort_values().plot.barh()
 #most successful months
 df_months = df_imp["funded date"].str.split(expand=True)[2]; df_months.head(5)
+df_years = df_imp["funded date"].str.split(expand=True)[3]; df_years.head(5)
+df_years.value_counts()
 df_months.count()
 df_months.value_counts().sort_values().plot.barh()
 #an_ind = df_imp["funded date"].isin(jan)
 #most successful pledge goals
-df_imp["pledged"].describe(); df_imp["pledged"].mode()
+df_imp["pledged"].describe()
+df_imp["pledged"].mode()
 df_imp["pledged"].plot.box()
 df_imp["pledged"].plot.hist(bins=100)
-df_imp["pledged"].plot.hist(logy=True, bins=100) #scaling the graph logirthimcally
+#df_imp["pledged"].plot.hist(logy=True, bins=100) #scaling the graph logirthimcally
 #df_imp["pledged"].plot.hist(xlim=[df_imp["pledged"].quantile(0.25), df_imp["pledged"].quantile(0.75)], bins=500) #removing outliers
-df_imp["pledged"].plot(xlim=[0, df_imp["pledged"].quantile(0.75)]) #removing outliers
+#df_imp["pledged"].plot(xlim=[0, df_imp["pledged"].quantile(0.75)]) #removing outliers
 
 pld_cnt = df_imp["pledged"].value_counts()
-pld_cnt.iloc[0:10].plot.bar()
+pld_cnt.iloc[0:10].sort_values().plot.barh()

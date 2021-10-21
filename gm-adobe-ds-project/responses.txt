@@ -6,13 +6,13 @@ Create a histogram that shows the distribution for number of backers. What is th
 >> this tells us that an overwhelming amount of projects have a smaller amount of backers
 
 Is the ‘duration’ variable normally distributed?
-> No
->>(assuming durations is day units) this tells us that a majority of projects last less than 50 days
+> Yes
+>>(assuming durations is day units) skewed to the right, majority of projects last less than 50 days
 
 If you could collect data on another attribute of these projects, what would it be and why?
 > It would be interesting to see the income brackets of project backers, 
 or what financial entities the backers belong to (individual, corporate, charity, etc.).
-This may help us understand the success ratio of "grass roots" projects vs "elite-backed" projects
+This may help us understand the success ratio of "grass-roots" projects vs "corporate-backed" projects
 
 
 Create a presentation using Google Slides (max. 5 slides) using the data above
@@ -20,16 +20,20 @@ Create a presentation using Google Slides (max. 5 slides) using the data above
 create a successful Kickstarter campaign.
 Be sure to consider the following:
  - What's the best length of time to run a campaign?
- > the median successful campaign is about 38 days long, with half of the successful campaigns 
-   falling between 30 - 45 mins.
+ > successful campaigns are about 38 days long on average, with half of the successful campaigns 
+   falling between 30 - 45 mins (IQR range).
  >> In general, its best to keep a campaign under 45 days, with 75% of successful campaigns falling
      under that timeframe
  - What's the ideal pledge goal?
- > About 75% of successful projects fall under 7255 pledged funds, with the most popular pledged being 1000
+ > About 75% of successful projects fall under 7255 pledged funds, with the most popular pledged being 1000 per backer
 
  - What type of projects would be most successful at getting funded?
- > The top two project categories are Music and Film/Video, which make the majority of successful projects
+ > The majority of successful projecs fall under Music, Film/Video, and Art
 
  - Is there an ideal month/day/time to launch a campaign
  > The top fundraising dates are May, Apr, Mar, and Feb; these months fall within the spring season.
 Peak fundraising month is May (late spring).
+
+Other observations:
+- About half of kickstarter campaigns succeed 
+- Big cities, such as NYC, LA, SF, and Chicago, have the most successful projects
